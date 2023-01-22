@@ -12,7 +12,8 @@ def create_text(video_count, i):
     video = video_text.video_list[video_count]
     text = video_text.text_list[video][i]
     if len(text) > 20 :
-        text_list = [text[x:x+20] for x in range(0, len(text), 20)]
+        # text_list = [text[x:x+20] for x in range(0, len(text), 20)]
+        text_list = text.split("\n")
         for t in text_list:
             st.markdown(t)
 
