@@ -1,5 +1,5 @@
 import streamlit as st
-import sera_video.video_text as video_text
+import video_text
 
 if 'count' not in st.session_state: 
 	st.session_state.count = 0 #countがsession_stateに追加されていない場合，0で初期化
@@ -10,7 +10,11 @@ if 'video_count' not in st.session_state:
 def create_text(video_count, i):
     st.header("提示方法")
     video = video_text.video_list[video_count]
-    st.markdown(video_text.text_list[video][i])
+    text = video_text.text_list[video][i]
+    if len(text) > 20 :
+        text_list = [text[x:x+20] for x in range(0, len(text), 20)]
+        for t in text_list:
+            st.markdown(t)
 
 tab1, tab2 = st.tabs(["video", "questions"])
 
