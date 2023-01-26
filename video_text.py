@@ -21,3 +21,8 @@ video_list = [
     "video.mp4",
     "video2.mp4"
 ]
+
+text_detail = [
+    "①詳細\n②詳細",
+    "①詳細\n②詳細"
+]
